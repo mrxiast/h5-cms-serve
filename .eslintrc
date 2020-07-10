@@ -1,0 +1,9 @@
+{
+  // "extends": "eslint-config-egg"
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019
+  }
+}
