@@ -23,6 +23,24 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  //关闭egg自带的csrf验证
+config.security = {
+  csrf: {
+    enable: false,
+    ignoreJSON: true
+  },
+  domainWhiteList: ['http://localhost:8080']
+};
+//跨域配置
+config.cors = {
+  origin:'*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+};
+//jwt key配置
+config.jwt={
+  secret:'xiasongtao',
+  // enable:true
+}
   // ！！！！！添加的配置信息在这里 [Begin]！！！！！！
   config.sequelize = {
     dialect: 'mysql',
@@ -32,7 +50,9 @@ module.exports = appInfo => {
     username: 'root',
     password: 'Xia199208.',
     timezone: '+08:00', // 保存为本地时区
+    query:{raw:true},
     dialectOptions: {
+      
       dateStrings: true,
       typeCast(field, next) {
         // for reading from database
@@ -47,7 +67,8 @@ module.exports = appInfo => {
       // 禁止修改表名，默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数
       // 但是为了安全着想，复数的转换可能会发生变化，所以禁止该行为
       freezeTableName: true
-    }
+    },
+    
   }
 
   // ！！！！！添加的配置信息在这里 [End]！！！！！！

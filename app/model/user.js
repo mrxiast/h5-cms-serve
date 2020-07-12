@@ -1,10 +1,14 @@
 module.exports = app => {
     const { STRING, INTEGER } = app.Sequelize;
     const User = app.model.define('user', {
-        userid: { type: STRING, primaryKey: true, },
-        username: STRING(50),
-        sex: INTEGER(1),
-        userpass: STRING
+        user_id: { type: STRING, primaryKey: true},
+        user_name: STRING,
+        nick_name:STRING,
+        ava_url:STRING,
+        sex: INTEGER,
+        phone:INTEGER,
+        e_mail:STRING,
+        password: STRING
     })
     return User
 }
