@@ -4,39 +4,38 @@ const Service = require('egg').Service;
 class UserService extends Service {
     async findAll() {
         const { ctx } = this
-        const userInfo = await ctx.model.User.findAll()
+        const userInfo = await ctx.model.crm.User.findAll()
         return userInfo
     }
     async getUserService(userid) {
         const { ctx } = this
         let result = {}
         try {
-            result = ctx.model.User.findAll({
+            result = ctx.model.crm.User.findAll({
                 where: {
                     userid
-                },
-                raw: true//查询操作的时候，加入这个参数可以直接拿到对象类型的查询结果，否则还需要通过方法调用解析
+                }
             })
         } catch (err) {
             ctx.logger.error(err)
         }
         return result
     }
-    async login(user_name,password){
-        const {ctx} = this
+    async login(user_name, password) {
+        const { ctx } = this
+        console.log(ctx.model.crm, '332219999999999991')
         let result = {}
-        try{
-            result = await ctx.model.User.findOne({
-                where:{
+        try {
+            result = await ctx.model.crm.User.findOne({
+                where: {
                     user_name,
                     password
                 }
-
             })
-        }catch(err){
+        } catch (err) {
             throw new Error(err)
         }
-        
+
         return result
     }
 }
