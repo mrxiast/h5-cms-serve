@@ -1,6 +1,6 @@
 module.exports = app => {
     const { STRING, INTEGER } = app.Sequelize
-    const User = app.crm.define('user', {
+    const User = app.road.define('user', {
         id: { type: STRING, primaryKey: true },
         username: STRING,
         nick_name: STRING,

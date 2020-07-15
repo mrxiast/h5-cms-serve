@@ -44,35 +44,10 @@ module.exports = appInfo => {
   // ！！！！！添加的配置信息在这里 [Begin]！！！！！！
   config.sequelize = {
 
-    // dialect: 'mysql',
-    // host: '203.195.222.243',
-    // port: 3306,
-    // database: 'crm',
-    // username: 'root',
-    // password: 'Xia199208.',
-    // timezone: '+08:00', // 保存为本地时区
-    // query: { raw: true },
-    // dialectOptions: {
-    //   dateStrings: true,
-    //   typeCast(field, next) {
-    //     // for reading from database
-    //     if (field.type === "DATETIME") {
-    //       return field.string();
-    //     }
-    //     return next();
-    //   }
-    // },
-    // define: {
-    //   underscored: true, // 注意需要加上这个， egg-sequelize只是简单的使用Object.assign对配置和默认配置做了merge, 如果不加这个 update_at会被转变成 updateAt故报错
-    //   // 禁止修改表名，默认情况下，sequelize将自动将所有传递的模型名称（define的第一个参数）转换为复数
-    //   // 但是为了安全着想，复数的转换可能会发生变化，所以禁止该行为
-    //   freezeTableName: true
-    // }
-
     datasources: [
       {
         delegate: 'crm', // 加载所有的模型到 app.model and ctx.model
-        baseDir: 'model/crm', // 要加载的模型目录`app/crm/*.js`
+        baseDir: 'crm', // 要加载的模型目录`app/crm/*.js`
         dialect: 'mysql',
         host: '203.195.222.243',
         port: 3306,
@@ -102,7 +77,7 @@ module.exports = appInfo => {
       },
       {
         delegate: 'road', // 加载所有的模型到 app.model and ctx.model
-        baseDir: 'model/road', // 要加载的模型目录`app/road/*.js`
+        baseDir: 'road', // 要加载的模型目录`app/road/*.js`
         dialect: 'mysql',
         host: '203.195.222.243',
         port: 3306,

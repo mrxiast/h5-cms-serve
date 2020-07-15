@@ -12,7 +12,7 @@ class TokenService extends Service {
         user_name,
         password
       },
-      exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7),
+      exp: Math.floor(Date.now() / 1000) + (60 * 60 * 2),
     }, this.app.config.jwt.secret);
   }
 
