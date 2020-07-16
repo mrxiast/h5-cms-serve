@@ -7,6 +7,16 @@ class UserService extends Service {
         const count = await ctx.road.Orders.count()
         return count
     }
+    async getOrderList(pageNum, pageSize, type) {
+        const { ctx } = this
+        let offset = (pageNum - 1) * pageSize
+
+        const orderInfo = await ctx.road.Spu.findAndCountAll({
+            limit: parseInt(pageSize),
+            offset,
+        })
+        return orderInfo
+    }
 }
 
 module.exports = UserService;

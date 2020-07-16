@@ -13,5 +13,7 @@ module.exports = app => {
   //road数据库操作
   router.get('/api/v1/road/getUser', token, controller.road.user.getUser)
   router.get('/api/v1/road/orderCount', token, controller.road.orders.getCount)
+  router.get('/api/v1/road/getOrderList', token, controller.road.orders.getOrderList)
+
 
 };

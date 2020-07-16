@@ -56,6 +56,7 @@ module.exports = appInfo => {
         password: 'Xia199208.',
         timezone: '+08:00', // 保存为本地时区
         query: { raw: true },
+        debug: true,
         dialectOptions: {
           requestTimeout: 999999,
           // instanceName:'DEV'
@@ -86,6 +87,7 @@ module.exports = appInfo => {
         password: 'Xia199208.',
         timezone: '+08:00', // 保存为本地时区
         query: { raw: true },
+        debug: true,
         dialectOptions: {
           dateStrings: true,
           typeCast(field, next) {
