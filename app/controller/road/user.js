@@ -1,16 +1,12 @@
 'use strict';
-const Controller = require('egg').Controller;
+const BaseController = require('../../core/baseController')
 
-class OtherUserController extends Controller {
+class OtherUserController extends BaseController {
   async getUser() {
     const { ctx } = this;
     const counts = await ctx.service.road.user.getCount()
     if (counts) {
-      ctx.body = {
-        code: 200,
-        message: '操作成功',
-        result: counts
-      }
+      this.success(counts)
     }
   }
 }

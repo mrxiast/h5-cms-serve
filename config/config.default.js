@@ -23,6 +23,11 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  //File模式  启用 file 模式 还有stream流的模式
+  config.multipart = {
+    mode: 'file',
+  };
+
   //关闭egg自带的csrf验证
   config.security = {
     csrf: {

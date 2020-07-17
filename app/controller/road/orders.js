@@ -1,16 +1,12 @@
 'use strict';
-const Controller = require('egg').Controller;
+const BaseController = require('../../core/baseController')
 
-class OrderController extends Controller {
+class OrderController extends BaseController {
     async getCount() {
         const { ctx } = this;
         const counts = await ctx.service.road.orders.getCount()
         if (counts) {
-            ctx.body = {
-                code: 200,
-                message: '操作成功',
-                result: counts
-            }
+            this.success(counts)
         }
     }
     async getOrderList() {
@@ -25,11 +21,7 @@ class OrderController extends Controller {
                 total: orderInfo.count,
                 list: orderInfo.rows
             }
-            ctx.body = {
-                code: 200,
-                message: '操作成功',
-                result: data
-            }
+            this.success(data)
         }
     }
 }

@@ -3,7 +3,7 @@ module.exports = app => {
     const Spu = app.road.define('spu', {
         id: { type: STRING, primaryKey: true },
         name: STRING,
-        product_url: STRING,
+        picture_url: STRING,
         type: INTEGER,
         content: STRING,
         price: INTEGER,

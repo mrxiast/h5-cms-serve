@@ -5,6 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
+  //token验证
   const token = app.middleware.author();
 
   //crm数据库登录
@@ -14,6 +15,5 @@ module.exports = app => {
   router.get('/api/v1/road/getUser', token, controller.road.user.getUser)
   router.get('/api/v1/road/orderCount', token, controller.road.orders.getCount)
   router.get('/api/v1/road/getOrderList', token, controller.road.orders.getOrderList)
-
 
 };
